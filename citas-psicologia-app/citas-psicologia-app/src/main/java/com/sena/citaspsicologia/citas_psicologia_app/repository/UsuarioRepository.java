@@ -1,11 +1,14 @@
 package com.sena.citaspsicologia.citas_psicologia_app.repository;
 
-import com.sena.citaspsicologia.citas_psicologia_app.model.Usuario;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
 
-@Repository
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sena.citaspsicologia.citas_psicologia_app.model.RolUsuario;
+import com.sena.citaspsicologia.citas_psicologia_app.model.Usuario;
+
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    // Método mágico de JPA para buscar por email
-    Usuario findByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
+    List<Usuario> findByRolOrderByNombreAsc(RolUsuario rol);
 }
