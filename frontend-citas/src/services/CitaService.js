@@ -1,15 +1,7 @@
-import axios from "axios";
+import api from "./api";
 
-const API_URL = "http://localhost:8090/api/citas";
-
-export const listarCitas = async () => {
-    return await axios.get(API_URL);
-};
-
-export const guardarCita = async (cita) => {
-    return await axios.post(API_URL, cita);
-};
-
-export const eliminarCita = async (id) => {
-    return await axios.delete(`${API_URL}/${id}`);
-};
+export const listarCitas = () => api.get("/citas");
+export const listarCitasPaciente = (pacienteId) => api.get(`/citas/paciente/${pacienteId}`);
+export const listarCitasPsicologo = (psicologoId) => api.get(`/citas/psicologo/${psicologoId}`);
+export const guardarCita = (cita) => api.post("/citas", cita);
+export const actualizarEstadoCita = (id, estado) => api.put(`/citas/${id}/estado`, null, { params: { estado } });
