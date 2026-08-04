@@ -1,9 +1,10 @@
-import api from "./api";
+﻿import api from "./api";
 
-export const obtenerResumenAdmin = () => api.get("/admin/resumen");
-export const obtenerResumenPaciente = (pacienteId) => api.get(`/pacientes/${pacienteId}/resumen`);
-export const obtenerAgendaPsicologo = (psicologoId) => api.get(`/psicologos/${psicologoId}/agenda`);
-export const obtenerPacientesPsicologo = (psicologoId) => api.get(`/psicologos/${psicologoId}/pacientes`);
-export const obtenerHistoriaPaciente = (psicologoId, pacienteId) => api.get(`/psicologos/${psicologoId}/pacientes/${pacienteId}/historia`);
-export const guardarHistoriaPaciente = (psicologoId, pacienteId, payload) => api.post(`/psicologos/${psicologoId}/pacientes/${pacienteId}/historia`, payload);
-export const agregarEvolucionPaciente = (psicologoId, pacienteId, payload) => api.post(`/psicologos/${psicologoId}/pacientes/${pacienteId}/evoluciones`, payload);
+export const obtenerResumenAdmin = () => api.get("/admin/summary");
+export const crearUsuarioDesdeAdmin = (payload) => api.post("/admin/users", payload);
+export const obtenerResumenPaciente = () => api.get("/patients/me/summary");
+export const obtenerAgendaPsicologo = () => api.get("/psychologists/me/agenda");
+export const obtenerPacientesPsicologo = () => api.get("/psychologists/me/patients");
+export const obtenerHistoriaPaciente = (pacienteId) => api.get(`/psychologists/me/patients/${pacienteId}/history`);
+export const guardarHistoriaPaciente = (pacienteId, payload) => api.put(`/psychologists/me/patients/${pacienteId}/history`, payload);
+export const agregarEvolucionPaciente = (pacienteId, payload) => api.post(`/psychologists/me/patients/${pacienteId}/evolutions`, payload);

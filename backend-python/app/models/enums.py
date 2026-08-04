@@ -1,0 +1,14 @@
+from enum import StrEnum
+
+
+class UserRole(StrEnum):
+    ADMINISTRADOR = "ADMINISTRADOR"
+    PSICOLOGO = "PSICOLOGO"
+    PACIENTE = "PACIENTE"
+
+
+class AppointmentStatus(StrEnum):
+    PROGRAMADA = "PROGRAMADA"
+    REPROGRAMADA = "REPROGRAMADA"
+    COMPLETADA = "COMPLETADA"
+    CANCELADA = "CANCELADA"

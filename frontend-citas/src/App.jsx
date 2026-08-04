@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { DashboardPage } from './pages/DashboardPage';
 import { LoginPage } from './pages/LoginPage';
 
@@ -17,7 +17,7 @@ function App() {
   }, [usuario]);
 
   return usuario ? (
-    <DashboardPage usuario={usuario} onLogout={() => setUsuario(null)} />
+    <DashboardPage usuario={usuario.user || usuario} onLogout={() => setUsuario(null)} />
   ) : (
     <LoginPage onLoginSuccess={setUsuario} />
   );
